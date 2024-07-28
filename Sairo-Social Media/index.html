@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sairo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Sairo</h1>
+        </header>
+        <nav class="navbar">
+            <button onclick="showSection('profile')">Profile</button>
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('friends')">Friends</button>
+            <button onclick="showSection('notifications')">Notifications</button>
+            <button onclick="showSection('settings')">Settings</button>
+        </nav>
+        
+        <main>
+            <div id="profile" class="content-section active">
+                <h2>Profile</h2>
+                <div class="profile-info">
+                    <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture">
+                    <input type="file" id="edit-profile-picture">
+                    <p>Username: <span id="username-display"></span></p>
+                    <input type="text" id="edit-username">
+                    <p>Bio:</p>
+                    <textarea id="edit-bio"></textarea>
+                    <button onclick="saveProfile()">Save Profile</button>
+                </div>
+            </div>
+
+            <div id="home" class="content-section">
+                <h2>Home</h2>
+                <div class="feed">
+                    <div class="post">
+                        <img src="https://via.placeholder.com/300" alt="Post Image">
+                        <p>Post Headline 1</p>
+                        <button onclick="likePost(this)">Like</button>
+                        <button onclick="commentPost(this)">Comment</button>
+                        <div class="comments"></div>
+                    </div>
+                    <div class="post">
+                        <img src="https://via.placeholder.com/300" alt="Post Image">
+                        <p>Post Headline 2</p>
+                        <button onclick="likePost(this)">Like</button>
+                        <button onclick="commentPost(this)">Comment</button>
+                        <div class="comments"></div>
+                    </div>
+                    <div class="post">
+                        <img src="https://via.placeholder.com/300" alt="Post Image">
+                        <p>Post Headline 3</p>
+                        <button onclick="likePost(this)">Like</button>
+                        <button onclick="commentPost(this)">Comment</button>
+                        <div class="comments"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="friends" class="content-section">
+                <h2>Friends</h2>
+                <div class="friends-list">
+                    <div class="friend">
+                        <img src="https://via.placeholder.com/50" alt="Friend 1">
+                        <p>Username: Siri</p>
+                        <p>Bio: Loves coding and coffee.</p>
+                    </div>
+                    <div class="friend">
+                        <img src="https://via.placeholder.com/50" alt="Friend 2">
+                        <p>Username: Ravindhar</p>
+                        <p>Bio: Avid reader and tech enthusiast.</p>
+                    </div>
+                    <div class="friend">
+                        <img src="https://via.placeholder.com/50" alt="Friend 3">
+                        <p>Username: Singh32</p>
+                        <p>Bio: Passionate about photography and travel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="notifications" class="content-section">
+                <h2>Notifications</h2>
+                <p>No new notifications</p>
+            </div>
+
+            <div id="settings" class="content-section">
+                <h2>Settings</h2>
+                <form onsubmit="saveSettings(event)">
+                    <label for="theme-select">Theme:</label>
+                    <select id="theme-select" onchange="changeTheme()">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                    <label for="language-select">Language:</label>
+                    <select id="language-select" onchange="changeLanguage()">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                    </select>
+                    <label for="email-notifications">Email Notifications:</label>
+                    <input type="checkbox" id="email-notifications">
+                    <label for="sms-notifications">SMS Notifications:</label>
+                    <input type="checkbox" id="sms-notifications">
+                    <button type="submit">Save Settings</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
